@@ -1,0 +1,51 @@
+Create table TRG_DEPT(
+ID int(7),
+NAME Varchar(25));
+
+Create table TRG_EMP(
+ID int(7),
+LAST_NAME varchar(25),
+FIRST_NAME varchar(25),
+DEPT_ID int(7));
+
+Alter table TRG_EMP modify LAST_NAME Varchar(100);
+
+desc TRG_EMP;
+
+create table TRG_EMPLOYEES(
+EMPLOYEE_ID int(7) not null,
+FIRST_NAME varchar(20) not null,
+LAST_NAME varchar(20) not null,
+SALARY int(7),
+DEPARTMENT_ID int(4));
+
+Drop Table TRG_EMP;
+
+Rename table TRG_EMPLOYEES to TRG_EMP;
+
+Alter Table TRG_EMP Drop FIRST_NAME;
+
+desc TRG_EMP;
+
+DROP TABLE TRG_EMP;
+create table TRG_EMP(
+ID int(7) not null,
+FIRST_NAME varchar(20) not null,
+LAST_NAME varchar(20) not null,
+SALARY int(7),
+DEPARTMENT_ID int(4),
+CONSTRAINT my_emp_id_pk Primary key(ID));
+
+desc TRG_EMP;
+
+Alter table TRG_DEPT add constraint my_emp_id_pk primary key(ID);
+Desc TRG_DEPT;
+
+Alter table TRG_EMP Add constraint my_emp_dept_id_fk foreign key(DEPARTMENT_ID) references TRG_DEPT(ID);
+desc TRG_EMP;
+
+select column_name,constraint_name,referenced_column_name,referenced_table_name from
+information_schema.KEY_COLUMN_USAGE where TABLE_NAME='TRG_EMP';
+
+select schema_name from information_schema.schema; 
+select table_name from information_schema.tables where table_schema = ‘TRG_EMP’; 
