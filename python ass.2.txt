@@ -1,0 +1,145 @@
+#A1
+class Counter:
+    def _init_(self, value):
+        self.value = value
+
+    def increase_one(self):
+        self.value = self.value + 1
+        return self.value
+    def decrease_one(self):
+        self.value = self.value - 1
+        return self.value
+    def get_value(self):
+        print(self.value)
+
+
+x = Counter(1)
+
+x.get_value()
+x.increase_one()
+x.increase_one()
+x.get_value()
+x.decrease_one()
+x.decrease_one()
+x.get_value()
+
+#A2
+from datetime import datetime
+print(datetime.today().strftime("%d-%m-%Y"))
+
+#A3
+class Person:
+    def _init_(self, args):
+        self.name = args[0]
+        self.lastname = args[1]
+        self.dateofbirth = args[2]
+
+    def printdetails(self):
+        print(f"Name :{self.name}")
+        print(f"Last Name :{self.lastname}")
+        print(f"Date of birth :{self.dateofbirth}")
+
+    def is_eligible(self, age):
+        if age >= 18:
+            return True
+        else:
+            return False
+
+
+x = Person(["BOB", "DYLAN", "24 MAY 1941"])
+
+x.printdetails()
+age = int(input())
+print(x.is_eligible(age))
+
+
+#A4
+def mx(a,b):
+    if(a>b):
+        return a
+    return b
+    
+if _name_ == "_main_":
+    a = int(input())
+    b = int(input())
+    print(mx(a,b))
+    
+#A5
+def fizz(x):
+    if x % 3 != 0 and x % 5 != 0:
+        return x
+    if x % 3 == 0 and x % 5 == 0:
+        return "FizzBuzz"
+    if x % 3 == 0:
+        return "Fizz"
+    return "Buzz"
+
+if _name_ == "_main_":
+    x = int(input("Enter a number: "))
+    print(fizz(x))
+
+#A6
+def speed(x):
+    if x < 70:
+        print("OK")
+    if x > 70:
+        s = x - 70
+        p = s//5
+        print(p)
+        if p >= 12:
+            print("License suspended")
+if _name_ == "_main_":
+    x = int(input())
+    speed(x)
+
+#A7
+def prnt(x):
+    for i in range (0,x+1):
+        if i%2 == 0:
+            print(i,"Even")
+        else:
+            print(i,"Odd")
+
+if _name_ == "_main_":
+    x = int(input())
+    prnt(x)
+
+#A8
+def fun(x):
+    for i in range (3,x+1):
+        if i%3==0 or i%5==0:
+            print(i)
+if _name_ == "_main_":
+    x= int(input())
+    fun(x)
+
+#A9
+def pattern(x):
+    for i  in range(1,x+1):
+        print(i*"*")
+if _name_ == "_main_":
+    x=int(input())
+    pattern(x)
+
+#A10
+def prime_numbers(x):
+    for j in range(2,x+1):
+        count = 0
+        for i in range(2,(j//2+1)):
+            if j%i==0:
+                count = 1
+                break
+        if count == 0:
+            print(j,end = ' ')
+if _name_ == "_main_":
+    x = int(input())
+    prime_numbers(x)
+
+#A11
+def age_limt(x):
+    if x >= 21 :
+        print("True")
+    print("False")
+if _name_ == "_main_":
+    x= int(input())
+    age_limt(x)
